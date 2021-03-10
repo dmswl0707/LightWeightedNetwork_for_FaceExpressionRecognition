@@ -1,4 +1,4 @@
-# light_weighted_CNN_for_FER
+# Light_weighted_CNN_for_FER
 
 ## constructing now :)
 
