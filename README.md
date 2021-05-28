@@ -1,2 +1,2 @@
-# Light_weighted_CNN_for_FER
+# LightWeightedNetwork_for_FaceExpressionRecognition
 
