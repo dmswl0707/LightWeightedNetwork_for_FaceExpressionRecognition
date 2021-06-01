@@ -17,7 +17,8 @@ while (webcam.isOpened()):
         for i, det in enumerate(dets):
             captured_num = captured_num + 1
             cv2.rectangle(img, (det.left(), det.top()), (det.right(), det.bottom()), (255, 0, 0), 3)
-            img_detect =img[det.top():det.bottom(), det.left():det.right()]
+            img_rec =img[det.top():det.bottom(), det.left():det.right()]
+            img_detect=cv2.resize(img_rec, dsize=(48, 48), interpolation=cv2.INTER_AREA)
             cv2.imwrite('./detected/face' + str(captured_num) + '.png', img_detect)
             print("Detection {}, score: {}, face_type: {}".format(det, scores[i], subdetectors[i]))
 

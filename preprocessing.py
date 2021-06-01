@@ -14,8 +14,8 @@ transform_test = transforms.Compose([transforms.Resize((50,50)),
                                     transforms.ToTensor(),
                                     transforms.Normalize((0.5),(0.5))])
 
-train_dataset = ImageFolder(root='/home/choieunji/바탕화면/data/CK+48/train', transform=transform_train)
-test_dataset = ImageFolder(root='/home/choieunji/바탕화면/data/CK+48/test', transform=transform_test)
+train_dataset = ImageFolder(root='C:/Users/fredd/PycharmProjects/pythonProject3/LightWeightedNetwork_for_FaceExpressionRecognition/CK+48/train', transform=transform_train)
+test_dataset = ImageFolder(root='C:/Users/fredd/PycharmProjects/pythonProject3/LightWeightedNetwork_for_FaceExpressionRecognition/CK+48/train', transform=transform_test)
 
 
 

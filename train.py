@@ -87,7 +87,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs):
 
 model_ft = Model(num_classes=7)
 model_ft = model_ft.to(device)
-print(summary(model_ft,(3,50,50)))
+print(summary(model_ft,(3,48,48)))
 
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model_ft.parameters(), momentum=0.9,lr=0.001, weight_decay=5e-3)
