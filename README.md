@@ -13,6 +13,7 @@ CK+ 데이터셋을 사용, 589개의 test 이미지, 196개의 validation 이�
 
 ### inference 
 test_class.py 사전 학습된 가중치를 불러와 class 별로 정확도를 출력
+
 test_ConfusionMatrix.py 각 클래스 별로 true label과 predict label 차이를 Confusion Matrix로 출력
 
 (ck+ testset 클래스 별 구성)
@@ -21,4 +22,5 @@ Anger 이미지 27장, Contempt 이미지 10장, Disgust 이미지 35장, Fear �
 ![image](https://user-images.githubusercontent.com/65028694/124432256-65628180-ddac-11eb-989d-8792735f0bdc.png)
 
 face_detection.py 웹캠으로 얼굴 인식 후 정면을 48X48 사이즈로 크롭하여 폴더에 저장한다.(웹캡으로 inference시)
+
 train.py 데이터셋을 모델에 학습하여 .pt 파일에 가중치를 
