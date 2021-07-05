@@ -14,3 +14,5 @@ Anger 이미지 27장, Contempt 이미지 10장, Disgust 이미지 35장, Fear �
 ### model
 ![image](https://user-images.githubusercontent.com/65028694/124432560-b8d4cf80-ddac-11eb-94fb-771c70775237.png)
 
+### 실험결과
+![image](https://user-images.githubusercontent.com/65028694/124432697-dd30ac00-ddac-11eb-872e-37b92cd901bc.png)
