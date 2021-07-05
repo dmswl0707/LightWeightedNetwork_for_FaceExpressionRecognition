@@ -8,6 +8,7 @@ test_class.py 사전 학습된 가중치를 불러와 class 별로 정확도를 
 test_ConfusionMatrix 각 클래스 별로 true label과 predict label 차이를 Confusion Matrix로 출력
 (testset 클래스 별 구성)
 Anger 이미지 27장, Contempt 이미지 10장, Disgust 이미지 35장, Fear 이미지 15장, Happy 이미지 41장, Sadness 이미지 18장, Surprise 이미지 50장으로, 총 196장
+
 ![image](https://user-images.githubusercontent.com/65028694/124432256-65628180-ddac-11eb-989d-8792735f0bdc.png)
 
 ### model
