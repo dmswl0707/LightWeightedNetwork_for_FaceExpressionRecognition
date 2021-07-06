@@ -10,7 +10,7 @@ writer = SummaryWriter()
 patience = 10
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(device)
+#print(device) # GPU인지 CPU인지
 
 def train_model(model, criterion, optimizer, scheduler, num_epochs):
     train_losses, val_losses = [], []
@@ -84,16 +84,6 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs):
 
     return model_ft, avg_train_losses, avg_val_losses
 
-
 model_ft = Model(num_classes=7)
-model_ft = model_ft.to(device)
-print(summary(model_ft,(3,48,48)))
-
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(model_ft.parameters(), momentum=0.9,lr=0.001, weight_decay=5e-3)
-
-# Decay LR by a factor of 0.1 every 7 epochs
-exp_lr_scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.001)
-
-model, train_loss, val_loss = train_model(model_ft, criterion, optimizer, exp_lr_scheduler,num_epochs=200)
 

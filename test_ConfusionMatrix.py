@@ -1,12 +1,16 @@
-from preprocessing import *
-from dataloader import *
-from model import *
-from train import *
+from main import *
 import pandas as pd
 import seaborn as sns
 
+
+PATH = '/home/eunji/pytorch_ubuntu_server/LightWeightedNetwork_for_FaceExpressionRecognition-main/checkpoint.pt'
+
 nb_classes = 7
 confusion_matrix = np.zeros((nb_classes, nb_classes))
+model = Model(num_classes=7)
+model.cuda()
+
+model.load_state_dict(torch.load(PATH))
 
 model.eval()
 with torch.no_grad():
@@ -21,6 +25,8 @@ with torch.no_grad():
 plt.figure(figsize=(15,10))
 
 print(confusion_matrix)
+#print(confusion_matrix.diag()/confusion_matrix.sum(1))
+
 class_names = list(categories)
 df_cm = pd.DataFrame(confusion_matrix, index=class_names, columns=class_names).astype(int)
 heatmap = sns.heatmap(df_cm, annot=True, fmt="d")

@@ -30,6 +30,7 @@ def imshow(img):
     img = img / 2 + 0.5  
     plt.imshow(np.transpose(img, (1, 2, 0)))
 
+'''
 dataiter = iter(loaders['train'])
 images, labels = dataiter.next()
 print(images.shape,labels.shape)
@@ -40,3 +41,4 @@ for idx in np.arange(8):
     ax = fig.add_subplot(2, 4, idx+1, xticks=[], yticks=[])
     imshow(images[idx])
     ax.set_title(categories[int(labels[idx])],fontsize=20,color='white')
+'''
