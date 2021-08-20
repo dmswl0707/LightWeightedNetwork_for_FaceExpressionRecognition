@@ -18,7 +18,6 @@ from face_alignment.face_alignment import FaceAlignment
 sys.path.insert(1, 'face_detector')
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-
 def main(args):
     # Model
     mini_xception = Model(7).to(device)

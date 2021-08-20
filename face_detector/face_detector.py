@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import os
 
+
 # Abstract class / Interface
 class FaceDetectorIface:
     def detect_faces(self, frame):

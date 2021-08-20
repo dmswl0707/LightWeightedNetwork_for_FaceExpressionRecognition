@@ -1,6 +1,7 @@
 import dlib
 import cv2
 
+
 detector = dlib.get_frontal_face_detector()
 webcam = cv2.VideoCapture(0)
 captured_num=0

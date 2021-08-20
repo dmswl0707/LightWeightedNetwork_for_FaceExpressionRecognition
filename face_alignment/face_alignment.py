@@ -4,6 +4,7 @@ import numpy as np
 import math
 from .dlib_landmarks.landmarks_detector import dlibLandmarks
 
+
 class FaceAlignment:   
     def __init__(self):
         self.dlib_landmarks = dlibLandmarks()     
