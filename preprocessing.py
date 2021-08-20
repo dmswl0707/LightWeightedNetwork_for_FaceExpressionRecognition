@@ -14,8 +14,8 @@ transform_test = transforms.Compose([transforms.Resize((50,50)),
                                     transforms.ToTensor(),
                                     transforms.Normalize((0.5),(0.5))])
 
-train_dataset = ImageFolder(root='/home/eunji/pytorch_ubuntu_server/LightWeightedNetwork_for_FaceExpressionRecognition-main/CK+48/train', transform=transform_train)
-test_dataset = ImageFolder(root='/home/eunji/pytorch_ubuntu_server/LightWeightedNetwork_for_FaceExpressionRecognition-main/CK+48/test', transform=transform_test)
+train_dataset = ImageFolder(root='/Users/ChoiEunJi.DESKTOP-BO1GKPC/Desktop/CK+48/train', transform=transform_train)
+test_dataset = ImageFolder(root='/Users/ChoiEunJi.DESKTOP-BO1GKPC/Desktop/CK+48/test', transform=transform_test)
 
 
 

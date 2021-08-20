@@ -74,7 +74,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs):
                         print("Early stopping")
                         break
 
-    model.load_state_dict(torch.load('checkpoint.pt'))
+    model.load_state_dict(torch.load('checkpoint/checkpoint.pt'))
 
     time_elapsed = time.time() - since
     print('Training complete in {:.0f}m {:.0f}s'.format(

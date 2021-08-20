@@ -2,7 +2,7 @@ from sys import flags
 import cv2
 import numpy as np
 import math
-from .dlib_landmarks.landmarks_detector import dlibLandmarks
+from face_alignment.dlib_landmarks.landmarks_detector import *
 
 
 class FaceAlignment:   

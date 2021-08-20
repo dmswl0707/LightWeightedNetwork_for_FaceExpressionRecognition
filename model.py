@@ -145,3 +145,6 @@ class Model(nn.Module):
         x = self.avgp(x)
         x = x.view((x.shape[0], -1))
         return x
+
+#Model=Model(num_classes=7)
+#print(Model)

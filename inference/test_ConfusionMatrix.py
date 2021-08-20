@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 
 
-PATH = '/home/eunji/pytorch_ubuntu_server/LightWeightedNetwork_for_FaceExpressionRecognition-main/checkpoint.pt'
+PATH = '/Users/ChoiEunJi.DESKTOP-BO1GKPC/Desktop/LightWeightedNetwork_for_FaceExpressionRecognition-main/checkpoint/checkpoint.pt'
 
 nb_classes = 7
 confusion_matrix = np.zeros((nb_classes, nb_classes))

@@ -20,12 +20,12 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def main(args):
     # Model
-    mini_xception = Model(7).to(device)
-    mini_xception.eval()
+    model = Model(7).to(device)
+    model.eval()
 
     # Load model
     checkpoint = torch.load(args.pretrained, map_location=device)
-    mini_xception.load_state_dict(checkpoint)
+    model.load_state_dict(checkpoint)
     face_alignment = FaceAlignment()
 
     # Face detection
@@ -85,10 +85,10 @@ def main(args):
             with torch.no_grad():
                 input_face = input_face.to(device)
                 t = time.time()
-                emotion = mini_xception(input_face)
+                emotion = model(input_face)
                 #print(f'\ntime={(time.time()-t) * 1000 } ms')
 
-                torch.set_printoptions(precision=6)
+                torch.set_printoptions(precision=7)
                 softmax = torch.nn.Softmax()
                 emotions_soft = softmax(emotion.squeeze()).reshape(-1, 1).cpu().detach().numpy()
                 emotions_soft = np.round(emotions_soft, 3)
@@ -117,7 +117,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--haar', action='store_true', help='run the haar cascade face detector')
-    parser.add_argument('--pretrained', type=str, default='checkpoint.pt'
+    parser.add_argument('--pretrained', type=str, default='checkpoint/checkpoint.pt'
                         , help='load weights')
     parser.add_argument('--head_pose', action='store_true', help='visualization of head pose euler angles')
     parser.add_argument('--path', type=str, default='', help='path to video to test')

@@ -1,7 +1,7 @@
 from main import *
 
 
-PATH = '/home/eunji/pytorch_ubuntu_server/LightWeightedNetwork_for_FaceExpressionRecognition-main/checkpoint.pt'
+PATH = '/Users/ChoiEunJi.DESKTOP-BO1GKPC/Desktop/LightWeightedNetwork_for_FaceExpressionRecognition-main/checkpoint/checkpoint.pt'
 model=Model(num_classes=7)
 model.load_state_dict(torch.load(PATH))
 
