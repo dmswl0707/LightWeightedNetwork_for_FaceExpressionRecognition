@@ -1,2 +1,0 @@
-# LightWeightedNetwork_for_FaceExpressionRecognition
-
