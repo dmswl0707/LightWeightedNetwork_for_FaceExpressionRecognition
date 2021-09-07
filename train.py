@@ -2,11 +2,12 @@ import time
 from dataloader import *
 from functions import *
 from model import *
+import wandb
 import torch.optim as optim
-from torch.utils.tensorboard import SummaryWriter
-from torchsummary import summary
+#from torch.utils.tensorboard import SummaryWriter
+#from torchsummary import summary
 
-writer = SummaryWriter()
+#writer = SummaryWriter()
 patience = 10
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -65,6 +66,13 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs):
                                  f'valid_loss: {val_loss:.4f}')
 
                     print(print_msg)
+                    wandb.log({
+                        "Train Loss": epoch_loss,
+                        "custom_epoch": epoch,
+                        "Train Accuracy": epoch_acc,
+                        "Train error": 100 - epoch_acc,
+                        "lr": optimizer.param_groups[0]['lr']  # 학습률 로깅
+                    })
 
                     train_losses = []
                     val_losses = []

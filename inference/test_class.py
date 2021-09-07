@@ -1,8 +1,9 @@
 from main import *
+from model import Model
 
+PATH = '/home/eunji/project_dir/LightWeightedNetwork_for_FaceExpressionRecognition-main/Adam_lrMax3e-6.pt'
+model=Model
 
-PATH = '/Users/ChoiEunJi.DESKTOP-BO1GKPC/Desktop/LightWeightedNetwork_for_FaceExpressionRecognition-main/checkpoint/checkpoint.pt'
-model=Model(num_classes=7)
 model.load_state_dict(torch.load(PATH))
 
 class_correct = list(0. for i in range(7))

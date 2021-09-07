@@ -1,8 +1,6 @@
-from sys import flags
 import cv2
-import numpy as np
 import math
-from face_alignment.dlib_landmarks.landmarks_detector import *
+from etc.face_alignment.dlib_landmarks.landmarks_detector import *
 
 
 class FaceAlignment:   

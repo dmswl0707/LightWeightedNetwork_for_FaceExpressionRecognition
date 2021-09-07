@@ -1,13 +1,14 @@
 from main import *
 import pandas as pd
 import seaborn as sns
+from model import Model
 
 
-PATH = '/Users/ChoiEunJi.DESKTOP-BO1GKPC/Desktop/LightWeightedNetwork_for_FaceExpressionRecognition-main/checkpoint/checkpoint.pt'
+PATH = '/home/eunji/project_dir/LightWeightedNetwork_for_FaceExpressionRecognition-main/Adam_lrMax3e-6.pt'
 
 nb_classes = 7
 confusion_matrix = np.zeros((nb_classes, nb_classes))
-model = Model(num_classes=7)
+model = Model
 model.cuda()
 
 model.load_state_dict(torch.load(PATH))

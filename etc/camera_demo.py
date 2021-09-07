@@ -1,19 +1,15 @@
-import enum
 import sys
 import time
 import argparse
 import cv2
 import numpy as np
 import torch
-from numpy.lib.type_check import imag
-import torch
-from torch.functional import norm
 import torchvision.transforms.transforms as transforms
-from face_detector.face_detector import DnnDetector, HaarCascadeDetector
+from etc.face_detector.face_detector import DnnDetector, HaarCascadeDetector
 
 from model import Model
-from utils import get_label_emotion, normalization, histogram_equalization, standerlization
-from face_alignment.face_alignment import FaceAlignment
+from etc.utils import get_label_emotion, histogram_equalization
+from etc.face_alignment.face_alignment import FaceAlignment
 
 sys.path.insert(1, 'face_detector')
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

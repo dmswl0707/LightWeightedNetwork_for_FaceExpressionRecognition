@@ -1,6 +1,10 @@
+import torch
 from torch import nn
+from torchsummary import summary
 
 
+# make model architecture
+# customed model
 
 class SeparableConv2d(nn.Module):
 
@@ -108,22 +112,22 @@ class Model(nn.Module):
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=8, kernel_size=3, stride=1, dilation=2, bias=False)
         self.bn1 = nn.BatchNorm2d(8, affine=True, momentum=0.99, eps=1e-3)
         self.relu1 = nn.ELU()
-        self.conv2 = nn.Conv2d(in_channels=8, out_channels=8, kernel_size=3, stride=1,  bias=False)
-        self.bn2 = nn.BatchNorm2d(8, momentum=0.99, eps=1e-3)
+        self.conv2 = nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3, stride=1, dilation=2, bias=False)
+        self.bn2 = nn.BatchNorm2d(16, momentum=0.99, eps=1e-3)
         self.relu2 = nn.ELU()
 
-
-        self.module1 = ResidualBlock(in_channeld=8, out_channels=16)
-        self.module2 = SEBasicBlock(16, 16, stride=1, downsample=None, groups=1,
+        self.module1 = ResidualBlock(in_channeld=16, out_channels=32)
+        self.module2 = SEBasicBlock(32, 32, stride=1, downsample=None, groups=1,
                                     base_width=64, dilation=1, norm_layer=None, reduction=16)
-        self.module3 = ResidualBlock(in_channeld=16, out_channels=32)
-        self.module4 = ResidualBlock(in_channeld=32, out_channels=64)
-        self.module5 = SEBasicBlock(64, 64, stride=1, downsample=None, groups=1,
+        self.module3 = ResidualBlock(in_channeld=32, out_channels=64)
+        self.module4 = SEBasicBlock(64, 64, stride=1, downsample=None, groups=1,
                                     base_width=64, dilation=1, norm_layer=None, reduction=16)
-        self.module6 = ResidualBlock(in_channeld=64, out_channels=128)
+        self.module4 = ResidualBlock(in_channeld=64, out_channels=128)
+        self.module5 = SEBasicBlock(128, 128, stride=1, downsample=None, groups=1,
+                                    base_width=64, dilation=1, norm_layer=None, reduction=16)
+        self.module6 = ResidualBlock(in_channeld=128, out_channels=64)
 
-
-        self.last_conv = nn.Conv2d(in_channels=128, out_channels=num_classes, kernel_size=3, padding=1, stride=2)
+        self.last_conv = nn.Conv2d(in_channels=64, out_channels=num_classes, kernel_size=3, padding=1, stride=2)
         self.avgp = nn.AdaptiveAvgPool2d((1, 1))
 
     def forward(self, input):
@@ -145,6 +149,6 @@ class Model(nn.Module):
         x = x.view((x.shape[0], -1))
         return x
 
-Model=Model(num_classes=7)
-#print(Model)
-#print(summary(Model, (3, 50, 50)))
+Model = Model(num_classes=10)
+
+#print(summary(model, (3, 32, 32), device = 'cpu'))
